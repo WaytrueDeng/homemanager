@@ -24,6 +24,13 @@ programs.zsh= {
   export XMODIFIERS=@im=fcitx
   export QT_QPA_PLATFORMTHEME=qt5ct
   export PATH=/home/waytrue/.cargo/bin/:/home/waytrue/.local/bin:$PATH
+  export HOMEBREW_PREFIX="/opt/homebrew";
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+  export HOMEBREW_REPOSITORY="/opt/homebrew";
+  export PATH="${PATH+:$PATH}:/opt/homebrew/bin:/opt/homebrew/sbin";
+  export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+  export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
   # Preferred editor for local and remote sessions
   # if [[ -n $SSH_CONNECTION ]]; then
   #   export EDITOR='vim'
@@ -56,6 +63,13 @@ programs.zsh= {
   };
 
   programs.starship = {
+      enable = true;
+      enableZshIntegration = true;
+
+  };
+
+
+  programs.zoxide = {
       enable = true;
       enableZshIntegration = true;
 
@@ -221,5 +235,27 @@ bind P choose-buffer    # choose which buffer to paste from
 
 	'';
   };
+}
+#+end_src
+
+* software
+#+begin_src nix :tangle ./software.nix
+{config,pkgs,...}:{
+}
+#+end_src
+
+* kitty
+#+begin_src nix :tangle ./kitty.nix
+{config,pkgs,...}:{
+  programs.kitty.enable = true;
+  programs.kitty.extraConfig = ''
+  font_family FiraCode Nerd Font Mono
+  italic_font      auto
+  bold_font        auto
+  bold_italic_font auto
+  font_size 20.0
+  disable_ligatures never
+
+  '';
 }
 #+end_src
