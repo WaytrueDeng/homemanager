@@ -277,7 +277,7 @@ bind P choose-buffer    # choose which buffer to paste from
   color7 #bbbbbb
   color15 #ffffff
   selection_foreground #1e1f28
-
+  macos_option_as_alt both
   '';
 }
 ```
