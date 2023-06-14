@@ -6,7 +6,8 @@
 		dotEmacs = {
 			enable = true;
 			target = ".emacs.d";
-			source = config.lib.file.mkOutOfStoreSymlink ./emacs;
+			# source = config.lib.file.mkOutOfStoreSymlink ./emacs;
+			source =  ./emacs;
 			recursive = true;
 		};
 
