@@ -69,7 +69,11 @@
     :config
     (global-undo-tree-mode 1)
     ;; Prevent undo tree files from polluting your git repo
-    (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+    (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
+          undo-tree-auto-save-history nil
+
+    )
+
 
     )
 
@@ -509,6 +513,14 @@
     (org-capture nil "r")
     )
 
+  (defun my/insert-org-roam-link ()
+    "this function auto add roam link"
+    (interactive)
+    (insert "[[roam:]]")
+    (backward-char 2)
+    (evil-insert)
+  )
+
   ;; org-roam
   (use-package org-roam
     :straight t
@@ -521,7 +533,8 @@
       "logseq/"
       )
 
-    :bind (("C-c n l" . org-roam-buffer-toggle)
+    :bind
+    (("C-c n l" . org-roam-buffer-toggle)
     ("C-c n f" . org-roam-node-find)
     ("C-c n g" . org-roam-graph)
     ("C-c n i" . org-roam-node-insert)
@@ -530,7 +543,7 @@
     ("C-c n j" . org-roam-dailies-capture-today)
     ("C-M-<return>" . org-insert-subheading)
     ("C-c r" . my/org-capture-shortcut)
-    )
+    ("M-[" . my/insert-org-roam-link))
 
     :config
     ;; If you're using a vertical completion framework, you might want a more informative completion interface
@@ -661,3 +674,4 @@
 ;;  )
 
 #+END_SRC
+
