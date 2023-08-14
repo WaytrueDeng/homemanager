@@ -8,13 +8,13 @@ programs.zsh= {
   eval "$(zoxide init zsh)" 
   eval "$(starship init zsh)"
 
-  ZSH_TMUX=$(tmux ls | grep "zsh")
+  #ZSH_TMUX=$(tmux ls | grep "zsh")
   #ZSH_TMUX=`ps aux | grep "tmux new-session -s zsh" | grep -v grep`
-  if [[ -n $ZSH_TMUX ]]; then
-    tmux a -t zsh 
-  else
-    tmux new-session -s zsh && tmux a -t zsh
-  fi
+  #if [[ -n $ZSH_TMUX ]]; then
+  #  tmux a -t zsh 
+  #else
+  #  tmux new-session -s zsh && tmux a -t zsh
+  #fi
     
   
   export GTK_IM_MODULE=fcitx
