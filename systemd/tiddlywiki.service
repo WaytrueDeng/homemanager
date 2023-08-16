@@ -1,0 +1,11 @@
+[Unit]
+Description=Xray Service
+After=network.target nss-lookup.target
+
+[Service]
+User=root
+ExecStart=/sbin/tiddlywiki /home/waytrue/Documents/tiddlywiki --listen 
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
