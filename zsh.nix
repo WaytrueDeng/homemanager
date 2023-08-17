@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
   {
 programs.zsh= {
-  enable = true;
+  enable = false;
   enableAutosuggestions = true;
   enableSyntaxHighlighting = true;
   initExtra = ''
+  bindkey -e
   eval "$(zoxide init zsh)" 
   eval "$(starship init zsh)"
 
